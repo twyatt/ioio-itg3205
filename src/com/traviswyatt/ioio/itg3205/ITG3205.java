@@ -13,8 +13,6 @@ public class ITG3205 implements IOIOLooper {
 	 */
 	public static final long REGISTER_WRITE_DELAY = 200L;
 	
-	public static final Rate CLOCK_RATE = Rate.RATE_400KHz;
-	
 //	public static final byte ADDRESS = (byte) 0x68; // AD0 = 0 (GND)
 	public static final byte ADDRESS = (byte) 0x69; // AD0 = 1 (VDD)
 	
@@ -108,12 +106,14 @@ public class ITG3205 implements IOIOLooper {
 	
 	private int twiNum;
 	private TwiMaster i2c;
+	private Rate rate;
 	
 	private byte[] readBuffer  = new byte[READ_BUFFER_SIZE];
 	private byte[] writeBuffer = new byte[WRITE_BUFFER_SIZE];
 
-	public ITG3205(int twiNum) {
+	public ITG3205(int twiNum, Rate rate) {
 		this.twiNum = twiNum;
+		this.rate = rate;
 	}
 	
 	public ITG3205 setListener(ITG3205Listener listener) {
@@ -210,7 +210,7 @@ public class ITG3205 implements IOIOLooper {
 
 	@Override
 	public void setup(IOIO ioio) throws ConnectionLostException, InterruptedException {
-		i2c = ioio.openTwiMaster(twiNum, CLOCK_RATE, false /* smbus */);
+		i2c = ioio.openTwiMaster(twiNum, rate, false /* smbus */);
 		setupDevice();
 	}
 

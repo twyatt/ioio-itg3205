@@ -1,6 +1,7 @@
 package com.traviswyatt.ioio.itg3205;
 
 import ioio.lib.api.IOIO;
+import ioio.lib.api.TwiMaster;
 import ioio.lib.api.exception.ConnectionLostException;
 import ioio.lib.util.IOIOLooper;
 import ioio.lib.util.android.IOIOActivity;
@@ -45,7 +46,7 @@ public class MainActivity extends IOIOActivity {
 	@Override
 	protected IOIOLooper createIOIOLooper() {
 		int twiNum = 1; // IOIO pin 1 = SDA, pin 2 = SCL
-		final ITG3205 itg3205 = new ITG3205(twiNum);
+		final ITG3205 itg3205 = new ITG3205(twiNum, TwiMaster.Rate.RATE_100KHz);
 		itg3205.setListener(new ITG3205.ITG3205Listener() {
 			@Override
 			public void onDeviceId(byte deviceId) {
