@@ -237,5 +237,10 @@ public class ITG3205 implements IOIOLooper {
 	public void incompatible() {
 		// TODO Auto-generated method stub
 	}
+
+	@Override
+	public void incompatible(IOIO ioio) {
+		// TODO Auto-generated method stub
+	}
 	
 }
