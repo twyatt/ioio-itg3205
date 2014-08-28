@@ -1,4 +1,4 @@
-package com.traviswyatt.ioio.itg3205;
+package com.traviswyatt.ioio.itg3205.android;
 
 import ioio.lib.api.IOIO;
 import ioio.lib.api.TwiMaster;
@@ -8,6 +8,8 @@ import ioio.lib.util.android.IOIOActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TextView;
+
+import com.traviswyatt.ioio.itg3205.ITG3205;
 
 public class MainActivity extends IOIOActivity {
 
