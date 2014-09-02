@@ -22,7 +22,7 @@ tasks.withType(com.android.build.gradle.tasks.PackageApplication) { pkgTask ->
 
 task run(type: Exec) {
     def adb = "$System.env.ANDROID_HOME/platform-tools/adb"
-    commandLine "$adb", 'shell', 'am', 'start', '-n', 'edu.sdsu.rocket.android/edu.sdsu.rocket.android.MainActivity'
+    commandLine "$adb", 'shell', 'am', 'start', '-n', 'com.traviswyatt.ioio.itg3205.android/com.traviswyatt.ioio.itg3205.android.MainActivity'
 }
 
 // sets up the Android Eclipse project, using the old Ant based build.
